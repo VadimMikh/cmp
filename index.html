@@ -6,8 +6,66 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-
+    <header class="header">
+        <a href="#" title="Back" class="nav-back navigate"></a>
+        <h1 class="user_name">Sophie</h1>
+    </header>
+    <div class="main">
+        <div class="profile">
+            <div class="user">
+                <a href="#" class="user-image navigate">
+                    <span class="online">Online</span>
+                    <div class="user-image-wrapper">
+                        <img src="img/girl.jpg" alt="profile image"/>
+                    </div>
+                </a>
+                <div class="user-description">
+                    <div class="user-description-top">
+                        <div class="user-description_inner">
+                            <h2 class="user-description_name">Sophie, <span class="age">22</span></h2>
+                            <p class="user-description_city">New York</p>
+                        </div>
+                        <div class="user-description_inner">
+                            <a href="#" class="star">
+                                <svg id="Layer_1" style="enable-background:new 0 0 612 792;" version="1.1" viewBox="0 0 612 792" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><polygon class="st0" points="306,153 216.4,298.9 50,339 161,469.3 147.8,639.9 306,574.6 464.2,639.9 451,469.3 562,339    395.6,298.9 306,153  "/></g></svg>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="user-description_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque eos libero placeat quam saepe?</p>
+                </div>
+            </div>
+            <a href="#" class="add_friend">Add as friend</a>
+        </div>
+        <div class="chat-page">
+            <div class="chat">
+                <div class="message partner">
+                    <a href="#" class="message-user_image navigate">
+                        <div class="message-user_image--wrap">
+                            <img src="img/girl.jpg" alt="partner">
+                        </div>
+                        <span class="message_online"></span>
+                    </a>
+                    <div class="message-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, praesentium?
+                    </div>
+                </div>
+                <!--<div class="message">
+                    <a href="#" class="message-user_image">
+                        <img src="img/boy.jpg" alt="">
+                    </a>
+                    <div class="message-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, praesentium?
+                    </div>
+                </div>-->
+                <div class="input-holder">
+                    <textarea type="text" cols="1" rows="1" name="message" id="message"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
