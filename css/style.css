@@ -5,6 +5,8 @@
 body {
     font: 16px/1 open_sans, sans-serif;
     background-color: #EDEBEC;
+    -webkit-transition: background-color .25s;
+    -o-transition: background-color .25s;
     transition: background-color .25s;
 }
 body, html {
@@ -18,9 +20,14 @@ body, html {
     position: relative;
 }
 .main {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
     position: relative;
     left: 0;
+    -webkit-transition: left .25s;
+    -o-transition: left .25s;
     transition: left .25s;
 }
 .chat_active .main {
@@ -38,18 +45,29 @@ body, html {
     position: absolute;
     left: 10px;
     top: 50%;
+    -webkit-transform: translateY(-50%) scale(0);
+    -ms-transform: translateY(-50%) scale(0);
     transform: translateY(-50%) scale(0);
     background: url("../img/back-arrow.png") no-repeat center center;
     -webkit-background-size: cover;
     background-size: cover;
+    -webkit-transition: -webkit-transform .25s;
+    transition: -webkit-transform .25s;
+    -o-transition: transform .25s;
     transition: transform .25s;
+    transition: transform .25s, -webkit-transform .25s;
 }
 .chat_active .nav-back {
+    -webkit-transform: translateY(-50%) scale(1);
+    -ms-transform: translateY(-50%) scale(1);
     transform: translateY(-50%) scale(1);
 }
 .profile, .chat-page {
+    height: -webkit-calc(100vh - 50px);
     height: calc(100vh - 50px);
     min-width: 100vw;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 0 10px 80px;
     position: relative;
@@ -58,6 +76,7 @@ body, html {
     background: mistyrose;
 }
 .chat_active .profile {
+    max-height: -webkit-calc(100vh - 50px);
     max-height: calc(100vh - 50px);
     overflow: hidden;
 }
@@ -75,6 +94,7 @@ body, html {
 .user-image-wrapper {
     height: 80vw;
     max-height: 400px;
+    -webkit-border-radius: 50%;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -83,6 +103,7 @@ body, html {
     top: 0;
     right: 0;
     display: inline-block;
+    -webkit-border-radius: 50%;
     border-radius: 50%;
     overflow: hidden;
     white-space: nowrap;
@@ -100,7 +121,13 @@ body, html {
     color: #444444;
 }
 .user-description-top {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
     justify-content: space-between;
 }
 .user-description_text {
@@ -135,6 +162,8 @@ body, html {
     position: absolute;
     left: 50%;
     bottom: 10px;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 95%;
     max-width: 400px;
@@ -144,6 +173,8 @@ body, html {
     line-height: 70px;
     text-align: center;
     font-size: 22px;
+    -webkit-transition: background .25s;
+    -o-transition: background .25s;
     transition: background .25s;
 }
 .friend .add_friend {
@@ -153,13 +184,20 @@ body, html {
     padding-top: 50px;
 }
 .chat {
+    height: -webkit-calc(100vh - 150px);
     height: calc(100vh - 150px);
     max-height: none;
     /*max-height: 75vh;*/
     overflow-y: scroll;
 }
 .message {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: start;
+    -webkit-justify-content: flex-start;
+    -ms-flex-pack: start;
     justify-content: flex-start;
     margin-bottom: 30px;
 }
@@ -172,6 +210,7 @@ body, html {
     min-width: 60px;
     height: 60px;
     margin-right: 12px;
+    -webkit-border-radius: 50%;
     border-radius: 50%;
     overflow: hidden;
 }
@@ -182,6 +221,7 @@ body, html {
     position: absolute;
     right: 0;
     top: 45px;
+    -webkit-border-radius: 50%;
     border-radius: 50%;
     display: inline-block;
     width: 17px;
@@ -190,6 +230,8 @@ body, html {
 }
 .message-text {
     width: 60%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     padding: 15px;
     background: #fff;
@@ -206,6 +248,10 @@ body, html {
     border-right: 8px solid #fff;
 }
 .message.partner {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    -webkit-flex-direction: row-reverse;
+    -ms-flex-direction: row-reverse;
     flex-direction: row-reverse;
 }
 .message.partner .message-user_image--wrap {
@@ -225,6 +271,8 @@ body, html {
     position: absolute;
     left: 50%;
     bottom: 10px;
+    -webkit-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
     transform: translateX(-50%);
     width: 90%;
     height: 30px;
@@ -250,11 +298,10 @@ body, html {
     border: none;
     padding: 0 20px;
     resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
     box-sizing: border-box;
     outline: none!important;
-}
-.chat {
-
 }
 
 @media screen and (min-width: 320px) and (orientation: landscape) {
@@ -268,7 +315,4 @@ body, html {
     .chat-page {
         padding-top: 20px;
     }
-}
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-
 }
