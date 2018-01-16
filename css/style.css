@@ -33,9 +33,9 @@ body, html {
     -o-transition: left .25s;
     transition: left .25s;
 }
-.chat_active .main {
+/*.chat_active .main {
     left: -100%;
-}
+}*/
 .user_name {
     color: #fff;
     font-size: 20px;
