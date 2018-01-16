@@ -63,25 +63,36 @@ function app() {
     function Message () {
         this.div = document.createElement('div');
         this.imgLink = document.createElement('a');
-        this.imgWrap = document.createElement('a');
+        this.imgWrap = document.createElement('div');
         this.img = document.createElement('img');
         this.textBox = document.createElement('div');
+        this.mark = document.createElement('span');
         this.messages = [];;
     }
 
     Message.prototype = {
         constructor: Message,
 
-        write: function write(text) {
+        write: function write(text, cl, src) {
             var m = text;
-            this.div.classList.add('message');
-            this.imgLink.classList.add('message-user_image');
-            this.img.src = 'img/boy.jpg';
+            if (cl) {
+                this.div.classList.add('message', cl);
+            } else {
+                this.div.classList.add('message');
+            }
+            this.imgLink.classList.add('message-user_image--wrap');
+            if (src) {
+                this.img.src = src;
+            } else {
+                this.img.src = 'img/boy.jpg';
+            }
             this.textBox.classList.add('message-text');
-            this.imgWrap.classList.add('message-user_image--wrap');
+            this.imgWrap.classList.add('message-user_image');
+            this.mark.classList.add('message_online');
 
             this.imgLink.appendChild(this.img);
             this.imgWrap.appendChild(this.imgLink);
+            this.imgWrap.appendChild(this.mark);
             this.div.appendChild(this.imgWrap);
             this.textBox.innerHTML = m;
             this.div.appendChild(this.textBox);
@@ -94,15 +105,27 @@ function app() {
         }
     };
 
-    var messageList = [];
+    var randomInt = function randomIntFromInterval(min, max) {
+        return Math.floor(Math.random() * (max - min + 1) + min);
+    };
+
+    var messageList = [],
+        ramdomPharases = ['Hello, how are you?', 'Hi there, miss me?', 'Hi, lets chat?', 'Hello, where are being so long?'];
     function saveMessage(text) {
         messageList.push(text);
         var store = JSON.stringify(messageList);
         sessionStorage.setItem('messages', store);
     }
     function getMessages() {
-        var store = sessionStorage.getItem('messages');
+        var store = sessionStorage.getItem('messages'),
+            randMessageInd = randomInt(0, ramdomPharases.length - 1),
+            randMessage = ramdomPharases[randMessageInd],
+            mes = new Message();
+
+        !!chatBox && chatBox.appendChild(mes.write(randMessage, 'partner', 'img/girl.jpg'));
+
         if (store) {
+
             messageList = JSON.parse(store);
             messageList.forEach(function (item) {
                 var m = new Message();

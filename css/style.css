@@ -209,6 +209,7 @@ body, html {
     position: relative;
 }
 .message-user_image--wrap {
+    display: inline-block;
     width: 60px;
     min-width: 60px;
     height: 60px;
@@ -221,15 +222,18 @@ body, html {
     width: 100%;
 }
 .message_online {
+    display: none;
     position: absolute;
     right: 0;
     top: 45px;
     -webkit-border-radius: 50%;
     border-radius: 50%;
-    display: inline-block;
     width: 17px;
     height: 17px;
     background: #73BC54;
+}
+.partner .message_online {
+    display: inline-block;
 }
 .message-text {
     width: 60%;
